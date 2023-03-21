@@ -1,4 +1,4 @@
-let store = [];
+const store = [];
 
 const addSection = document.querySelector('.add-section');
 
@@ -10,63 +10,46 @@ const showSection = document.createElement('div');
 // showSection.classList.add('');
 addSection.appendChild(showSection);
 
-
 const addButton = document.getElementById('add');
-addButton.addEventListener('click' , function(){
-    showSection.innerHTML = '';
-    let writer = document.getElementById('writer').value;
-    let head = document.getElementById('head').value;
+addButton.addEventListener('click', () => {
+  showSection.innerHTML = '';
+  const writer = document.getElementById('writer').value;
+  const head = document.getElementById('head').value;
 
-    let newObj = {
-        author:writer,
-        title:head,
-    };
+  const newObj = {
+    author: writer,
+    title: head,
+  };
 
-    store.push(newObj);
+  store.push(newObj);
 
-    localStorage.setItem('stored' ,JSON.stringify(store));
-    let stored2 = JSON.parse(localStorage.getItem('stored'));
+  localStorage.setItem('stored', JSON.stringify(store));
+  const stored2 = JSON.parse(localStorage.getItem('stored'));
 
-    let lastStored2 = stored2[stored2.length - 1];
+  stored2.forEach((element, index) => {
+    const hostBooks = document.createElement('div');
+    hostBooks.id = index;
 
+    const author = document.createElement('p');
+    author.innerHTML = `Author : ${element.author}`;
+    hostBooks.appendChild(author);
 
-    stored2.forEach((element , index) => {
-        let hostBooks = document.createElement('div');
-        hostBooks.id = index;
-        
-        const author = document.createElement('p');
-        author.innerHTML = `Author : ` + element.author;
-        hostBooks.appendChild(author);
-        
-        const title = document.createElement('p');
-        title.innerHTML = `Title : `+ element.title;
-        hostBooks.appendChild(title);
-        
-        const remove = document.createElement('button');
-        remove.innerHTML = 'Remove';
-        remove.addEventListener('click' , function(){
+    const title = document.createElement('p');
+    title.innerHTML = `Title : ${element.title}`;
+    hostBooks.appendChild(title);
 
-        store.splice(index, 1);
-        localStorage.setItem('stored', JSON.stringify(store));
-        showSection.removeChild(hostBooks);
+    const remove = document.createElement('button');
+    remove.innerHTML = 'Remove';
+    remove.addEventListener('click', () => {
+      store.splice(index, 1);
+      localStorage.setItem('stored', JSON.stringify(store));
+      showSection.removeChild(hostBooks);
+    });
+    hostBooks.append(remove);
 
-        });
-        hostBooks.append(remove);
+    const hr = document.createElement('hr');
+    hostBooks.append(hr);
 
-        
-        const hr = document.createElement('hr');
-        hostBooks.append(hr);
-
-        showSection.append(hostBooks);
-
-            
-        });
-
+    showSection.append(hostBooks);
+  });
 });
-
-
-
-
-
-
-
