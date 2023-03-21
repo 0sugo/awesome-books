@@ -1,0 +1,70 @@
+let store = [
+    // {
+    //     Author:'james Lonyangapuo',
+    //     Title:'sun goes down'
+    // },
+    // {
+    //     Author:'Josephat Odipo',
+    //     Title:'River and source'
+    // }
+]
+
+
+const addSection = document.querySelector('.add-section');
+
+const header = document.createElement('h2');
+header.innerHTML = 'Awesome books';
+addSection.appendChild(header);
+
+const showSection = document.createElement('div');
+// showSection.classList.add('');
+addSection.appendChild(showSection);
+
+
+const addButton = document.getElementById('add');
+addButton.addEventListener('click' , function(){
+    showSection.innerHTML = '';
+    let writer = document.getElementById('writer').value;
+    let head = document.getElementById('head').value;
+
+    let newObj = {
+        author:writer,
+        title:head,
+    };
+
+    store.push(newObj);
+
+    localStorage.setItem('stored' ,JSON.stringify(store));
+    let stored2 = JSON.parse(localStorage.getItem('stored'));
+
+    let lastStored2 = stored2[stored2.length - 1];
+
+
+    stored2.forEach(element => {
+
+        const author = document.createElement('p');
+        author.innerHTML = `Author : ` + element.author;
+        showSection.appendChild(author);
+        
+        const title = document.createElement('p');
+        title.innerHTML = `Title : `+ element.title;
+        showSection.appendChild(title);
+        
+        const remove = document.createElement('button');
+        remove.innerHTML = 'Remove'
+        showSection.append(remove);
+        
+        const hr = document.createElement('hr');
+        showSection.append(hr);
+
+            
+        });
+
+});
+
+
+
+
+
+
+
