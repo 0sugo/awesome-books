@@ -1,14 +1,4 @@
-let store = [
-    // {
-    //     Author:'james Lonyangapuo',
-    //     Title:'sun goes down'
-    // },
-    // {
-    //     Author:'Josephat Odipo',
-    //     Title:'River and source'
-    // }
-]
-
+let store = [];
 
 const addSection = document.querySelector('.add-section');
 
@@ -40,22 +30,34 @@ addButton.addEventListener('click' , function(){
     let lastStored2 = stored2[stored2.length - 1];
 
 
-    stored2.forEach(element => {
-
+    stored2.forEach((element , index) => {
+        let hostBooks = document.createElement('div');
+        hostBooks.id = index;
+        
         const author = document.createElement('p');
         author.innerHTML = `Author : ` + element.author;
-        showSection.appendChild(author);
+        hostBooks.appendChild(author);
         
         const title = document.createElement('p');
         title.innerHTML = `Title : `+ element.title;
-        showSection.appendChild(title);
+        hostBooks.appendChild(title);
         
         const remove = document.createElement('button');
-        remove.innerHTML = 'Remove'
-        showSection.append(remove);
+        remove.innerHTML = 'Remove';
+        remove.addEventListener('click' , function(){
+
+        store.splice(index, 1);
+        localStorage.setItem('stored', JSON.stringify(store));
+        showSection.removeChild(hostBooks);
+
+        });
+        hostBooks.append(remove);
+
         
         const hr = document.createElement('hr');
-        showSection.append(hr);
+        hostBooks.append(hr);
+
+        showSection.append(hostBooks);
 
             
         });
