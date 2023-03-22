@@ -91,13 +91,6 @@ Get a hosting website and give all of the github files
 
 ## 👥 Author <a name="author"></a>
 
-
-👤 **Mussie Teka**
-
-- GitHub: [@mussieteka](https://github.com/MussieTeka)
-- Twitter: [@mussieteka](https://twitter.com/mussieteka)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/mussieteka/)
-
 👤**Joseck Osugo**
 
 - GitHub: [0sugo](https://github.com/0sugo)
