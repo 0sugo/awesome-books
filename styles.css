@@ -6,3 +6,47 @@ body {
   width: 100%;
   overflow-x: hidden;
 }
+h2{
+  text-align: center;
+}
+/* navbar */
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  width: 95%;
+  padding: 12px;
+  position: relative;
+  left:50%;
+  right:50%;
+  box-sizing: border-box;
+  transform: translate(-50%);
+  -webkit-transform: translate(-50%);
+  -moz-transform: translate(-50%);
+  -ms-transform: translate(-50%);
+  -o-transform: translate(-50%);
+}
+.nav-list{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style-type: none;
+  flex: 1;
+  padding: 1px;
+  width: 120%;
+  position: relative;
+  right:40px;
+  
+}
+.nav-list{
+  border:1px solid red ;
+
+}
+
+#unique-border{
+border-left: 1px solid black;
+border-right: 1px solid black;
+margin:0px 5%;
+padding: 4%;
+}
