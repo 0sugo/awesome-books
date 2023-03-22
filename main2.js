@@ -1,7 +1,7 @@
 const addSection = document.querySelector('.add-section');
 
 const header = document.createElement('h2');
-header.innerHTML = 'Awesome books';
+header.innerHTML = 'All awesome books';
 addSection.appendChild(header);
 
 const showSection = document.createElement('div');
