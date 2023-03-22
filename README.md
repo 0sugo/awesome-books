@@ -70,7 +70,7 @@ And run `npm start` to launch the project.
 
 Clone this repository to your desired folder:
 
-  `git clone https://github.com/MussieTeka/Awesome-Books.git`
+  `git clone https://github.com/0sugo/awesome-books.git`
 
 ### Usage
 
