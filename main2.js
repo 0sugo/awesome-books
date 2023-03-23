@@ -20,8 +20,8 @@ class Books {
     const head = document.getElementById('head').value;
 
     const newObj = {
-      writer:writer,
-      head:head,
+      writer,
+      head,
     };
     store.push(newObj);
 
@@ -35,15 +35,13 @@ class Books {
     const stored2 = JSON.parse(localStorage.getItem('stored'));
 
     stored2.forEach((stored, index) => {
-       
       const hostBooks = document.createElement('div');
       hostBooks.id = index;
       if (index % 2 === 0) {
-        hostBooks.style.backgroundColor = "grey";
-        
-    }else{
-        hostBooks.style.backgroundColor = "#fff";
-    }
+        hostBooks.style.backgroundColor = 'grey';
+      } else {
+        hostBooks.style.backgroundColor = '#fff';
+      }
       showSection.append(hostBooks);
 
       const author = document.createElement('p');
@@ -60,8 +58,6 @@ class Books {
         store.splice(index, 1);
         localStorage.setItem('stored', JSON.stringify(store));
         showSection.removeChild(hostBooks);
-
-
       });
       hostBooks.append(remover);
 
@@ -79,28 +75,26 @@ addButton.addEventListener('click', () => {
   bookItem.update().retrieve();
 });
 
+const lister = document.querySelector('#lister');
+const contacter = document.querySelector('#contacter');
+const adder = document.querySelector('#unique-border');
 
-    let lister = document.querySelector("#lister");
-    let contacter = document.querySelector("#contacter");
-    let adder = document.querySelector("#unique-border");
+const list = document.querySelector('.list-section');
+const add = document.querySelector('.add');
+const contact = document.querySelector('.contact');
 
-    let list = document.querySelector(".list-section");
-    let add = document.querySelector(".add");
-    let contact = document.querySelector(".contact");
-
-    lister.addEventListener('click' , function(){
-        list.style.display = 'block';
-        add.style.display = 'none';
-        contact.style.display = 'none';
-    })
-    adder.addEventListener('click' , function(){
-        add.style.display = 'block';
-        list.style.display = 'none';
-        contact.style.display = 'none';
-    })
-    contacter.addEventListener('click' , function(){
-        contact.style.display = 'flex';
-        add.style.display = 'none';
-        list.style.display = 'none';
-    })
-    
+lister.addEventListener('click', () => {
+  list.style.display = 'block';
+  add.style.display = 'none';
+  contact.style.display = 'none';
+});
+adder.addEventListener('click', () => {
+  add.style.display = 'block';
+  list.style.display = 'none';
+  contact.style.display = 'none';
+});
+contacter.addEventListener('click', () => {
+  contact.style.display = 'flex';
+  add.style.display = 'none';
+  list.style.display = 'none';
+});
