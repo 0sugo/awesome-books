@@ -1,4 +1,4 @@
-const addSection = document.querySelector('.add-section');
+const addSection = document.querySelector('.list-section');
 
 const header = document.createElement('h2');
 header.innerHTML = 'All awesome books';
@@ -20,8 +20,8 @@ class Books {
     const head = document.getElementById('head').value;
 
     const newObj = {
-      writer,
-      head,
+      writer:writer,
+      head:head,
     };
     store.push(newObj);
 
@@ -33,9 +33,17 @@ class Books {
     showSection.innerHTML = '';
 
     const stored2 = JSON.parse(localStorage.getItem('stored'));
+
     stored2.forEach((stored, index) => {
+       
       const hostBooks = document.createElement('div');
-      hostBooks.id = 'index';
+      hostBooks.id = index;
+      if (index % 2 === 0) {
+        hostBooks.style.backgroundColor = "grey";
+        
+    }else{
+        hostBooks.style.backgroundColor = "#fff";
+    }
       showSection.append(hostBooks);
 
       const author = document.createElement('p');
@@ -43,7 +51,7 @@ class Books {
       hostBooks.append(author);
 
       const title = document.createElement('p');
-      title.innerHTML = `Author :${stored.head}`;
+      title.innerHTML = `Title :${stored.head}`;
       hostBooks.append(title);
 
       const remover = document.createElement('button');
@@ -52,6 +60,8 @@ class Books {
         store.splice(index, 1);
         localStorage.setItem('stored', JSON.stringify(store));
         showSection.removeChild(hostBooks);
+
+
       });
       hostBooks.append(remover);
 
@@ -68,3 +78,29 @@ addButton.addEventListener('click', () => {
   const bookItem = new Books();
   bookItem.update().retrieve();
 });
+
+
+    let lister = document.querySelector("#lister");
+    let contacter = document.querySelector("#contacter");
+    let adder = document.querySelector("#unique-border");
+
+    let list = document.querySelector(".list-section");
+    let add = document.querySelector(".add");
+    let contact = document.querySelector(".contact");
+
+    lister.addEventListener('click' , function(){
+        list.style.display = 'block';
+        add.style.display = 'none';
+        contact.style.display = 'none';
+    })
+    adder.addEventListener('click' , function(){
+        add.style.display = 'block';
+        list.style.display = 'none';
+        contact.style.display = 'none';
+    })
+    contacter.addEventListener('click' , function(){
+        contact.style.display = 'flex';
+        add.style.display = 'none';
+        list.style.display = 'none';
+    })
+    
