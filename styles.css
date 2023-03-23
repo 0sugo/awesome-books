@@ -6,25 +6,30 @@ body {
   width: 100%;
   overflow-x: hidden;
 }
-h2{
+
+h2 {
   text-align: center;
 }
-.list-section{
-  display: none;
-}
-.add{
+
+.list-section {
   display: none;
 }
 
-.hide{
+.add {
   display: none;
 }
-.show{
+
+.hide {
+  display: none;
+}
+
+.show {
   display: block;
 }
+
 /* navbar */
 
-.navbar{
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,8 +37,8 @@ h2{
   width: 95%;
   padding: 12px;
   position: relative;
-  left:50%;
-  right:50%;
+  left: 50%;
+  right: 50%;
   box-sizing: border-box;
   transform: translate(-50%);
   -webkit-transform: translate(-50%);
@@ -41,7 +46,8 @@ h2{
   -ms-transform: translate(-50%);
   -o-transform: translate(-50%);
 }
-.nav-list{
+
+.nav-list {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -50,34 +56,33 @@ h2{
   padding: 1px;
   width: 120%;
   position: relative;
-  right:40px;
-  
-}
-.nav-list{
-  border:1px solid white ;
+  right: 40px;
+  border: 1px solid white;
   cursor: pointer;
-
 }
 
-#unique-border{
-border-left: 1px solid black;
-border-right: 1px solid black;
-margin:0px 5%;
-padding: 4%;
+#unique-border {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  margin: 0 5%;
+  padding: 4%;
 }
+
 /* form */
-form{
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 20px;
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
-.add-btn{
+
+.add-btn {
   display: flex;
   justify-self: end;
 }
+
 /* contact */
-.contact{
+.contact {
   display: none;
   flex-direction: column;
   justify-content: center;
