@@ -4,16 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Awesome books</title>
 </head>
 <body>
+    <section class="navbar">
+        <div>
+            <h3>Awesome Books</h3>
+        </div>
+        <nav>
+            <ul class="nav-list">
+                <li id="lister"><a href=""></a> List</li>
+                <li id="unique-border" ><a href=""></a> Add new</li>
+                <li id="contacter"><a href=""></a> Contact</li>
+            </ul>
+        </nav>
+    </section>
     
-    <section class="add-section">
+    <section class="list-section">
        
 
     </section>
 
-    <section>
+    <section class="add">
         <h2>Add Book</h2>
         <form action="">
             <label for="Title">
@@ -22,9 +35,23 @@
             <label for="author">
                 <input type="text" placeholder="Author" id="writer" required>
             </label>
-            <button type="button" id="add">Add</button>
+            <div class="add-btn">
+                <button type="button" id="add">Add</button>
+            </div>
+            
         </form>
 
+    </section>
+
+    <section class="contact">
+            <h2>Contact information</h2>
+            <p>Do you have any questions or you just want to say "Hello"? <br> You can reach out to us!</p>
+            <ul>
+                <li>Our email:mail@gmail.com</li>
+                <li>Our Phone number:0043586534422</li>
+                <li>Our address:Sreetname 22,84503City,Country</li>
+            </ul>
+    
     </section>
     
 

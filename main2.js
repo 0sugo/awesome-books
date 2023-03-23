@@ -1,7 +1,7 @@
-const addSection = document.querySelector('.add-section');
+const addSection = document.querySelector('.list-section');
 
 const header = document.createElement('h2');
-header.innerHTML = 'Awesome books';
+header.innerHTML = 'All awesome books';
 addSection.appendChild(header);
 
 const showSection = document.createElement('div');
@@ -33,9 +33,15 @@ class Books {
     showSection.innerHTML = '';
 
     const stored2 = JSON.parse(localStorage.getItem('stored'));
+
     stored2.forEach((stored, index) => {
       const hostBooks = document.createElement('div');
-      hostBooks.id = 'index';
+      hostBooks.id = index;
+      if (index % 2 === 0) {
+        hostBooks.style.backgroundColor = 'grey';
+      } else {
+        hostBooks.style.backgroundColor = '#fff';
+      }
       showSection.append(hostBooks);
 
       const author = document.createElement('p');
@@ -43,7 +49,7 @@ class Books {
       hostBooks.append(author);
 
       const title = document.createElement('p');
-      title.innerHTML = `Author :${stored.head}`;
+      title.innerHTML = `Title :${stored.head}`;
       hostBooks.append(title);
 
       const remover = document.createElement('button');
@@ -67,4 +73,28 @@ addButton.addEventListener('click', () => {
 // console.log("clicked")
   const bookItem = new Books();
   bookItem.update().retrieve();
+});
+
+const lister = document.querySelector('#lister');
+const contacter = document.querySelector('#contacter');
+const adder = document.querySelector('#unique-border');
+
+const list = document.querySelector('.list-section');
+const add = document.querySelector('.add');
+const contact = document.querySelector('.contact');
+
+lister.addEventListener('click', () => {
+  list.style.display = 'block';
+  add.style.display = 'none';
+  contact.style.display = 'none';
+});
+adder.addEventListener('click', () => {
+  add.style.display = 'block';
+  list.style.display = 'none';
+  contact.style.display = 'none';
+});
+contacter.addEventListener('click', () => {
+  contact.style.display = 'flex';
+  add.style.display = 'none';
+  list.style.display = 'none';
 });
